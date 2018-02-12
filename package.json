@@ -1,6 +1,6 @@
 {
   "name": "braingamesyn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hexlet Project 1",
   "main": "src/bin/brain-games.js",
   "bin": {
@@ -22,5 +22,8 @@
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.8"
   }
 }
