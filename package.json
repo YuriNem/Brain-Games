@@ -13,7 +13,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "eslint": "eslint"
   },
   "author": "Yuri Nemushkin",
   "license": "ISC",
@@ -24,6 +25,10 @@
     "babel-preset-stage-0": "*"
   },
   "dependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "readline-sync": "^1.4.8"
   }
 }
