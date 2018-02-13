@@ -1,6 +1,6 @@
 {
   "name": "braingamesyn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Hexlet Project 1",
   "main": "src/bin/brain-games.js",
   "bin": {
