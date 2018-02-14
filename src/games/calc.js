@@ -1,15 +1,12 @@
-import readlineSync from 'readline-sync';
+import questionAnswer from '../answer';
 
-const askCalc = () => {
-  console.log('Welcome to the Brain Games!\nWhat is the result of the expression?\n');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!\n`);
+const askCalc = (name) => {
   let i;
   for (i = 0; i < 3; i += 1) {
     const numberFirst = Math.floor(Math.random() * (100 + 1));
     const numberSecond = Math.floor(Math.random() * (100 + 1));
-    let result;
     let operator = '';
+    let result;
     switch (Math.floor(Math.random() * (3)) + 1) {
       case 1:
         operator = '+';
@@ -26,17 +23,10 @@ const askCalc = () => {
       default:
         break;
     }
-    console.log(`Question: ${numberFirst} ${operator} ${numberSecond}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (Number(answer) === result) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer '${result}'.\nLet's try again, ${name}!`);
+    const stringResult = `${numberFirst} ${operator} ${numberSecond}`;
+    if (questionAnswer(name, result, stringResult) === 1) {
       break;
     }
-  }
-  if (i === 3) {
-    console.log(`Congratulations, ${name}!`);
   }
   return 0;
 };
