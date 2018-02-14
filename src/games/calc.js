@@ -31,7 +31,7 @@ const askCalc = () => {
     if (Number(answer) === result) {
       console.log('Correct!');
     } else {
-      console.log(`\'${answer}\' is wrong answer ;(. Correct answer \'${result}\'.\nLet's try again, ${name}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer '${result}'.\nLet's try again, ${name}!`);
       break;
     }
   }

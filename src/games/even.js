@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 const askEven = () => {
-  console.log('Welcome to the Brain Games!\nAnswer \"yes\" if number even otherwise answer \"no\".\n');
+  console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no".\n');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
   let i;
@@ -12,7 +12,7 @@ const askEven = () => {
     if (((number % 2 === 0) && (answer === 'yes')) || ((number % 2 !== 0) && (answer === 'no'))) {
       console.log('Correct!');
     } else {
-      console.log(`\'${answer}\' is wrong answer ;(. Correct answer \'${(number % 2 === 0) ? 'yes' : 'no'}\'.\nLet's try again, ${name}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer '${(number % 2 === 0) ? 'yes' : 'no'}'.\nLet's try again, ${name}!`);
       break;
     }
   }
