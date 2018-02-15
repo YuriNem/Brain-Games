@@ -9,8 +9,9 @@ const askBalance = () => {
   let numberThree = Math.floor((number - (numberOne * 1000) - (numberTwo * 100)) / 10);
   let numberFour = Math.floor(number - (numberOne * 1000) - (numberTwo * 100) -
   (numberThree * 10));
-  while (true) {
-    let counter = 0;
+  let counter = 0;
+  while (counter !== 4) {
+    counter = 0;
     if ((numberFour - 1) > numberThree) {
       numberFour -= 1;
       numberThree += 1;
