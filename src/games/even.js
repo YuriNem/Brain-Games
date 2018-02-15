@@ -7,4 +7,4 @@ const askEven = () => {
   return cons(resultInQuestion, resultInAnswer);
 };
 
-export default () => flow(askEven, 'Answer "yes" if number even otherwise answer "no".\n');
+export default () => flow(askEven, 'Answer "yes" if number even otherwise answer "no".');

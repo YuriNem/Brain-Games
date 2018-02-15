@@ -1,19 +1,25 @@
 import cons from '../cons';
 import { flow } from '..';
 
+const findGcd = (a, b) => {
+  let numberOne = a;
+  let numberTwo = b;
+  while (numberOne !== 0 && numberTwo !== 0) {
+    if (numberOne > numberTwo) {
+      numberOne %= numberTwo;
+    } else {
+      numberTwo %= numberOne;
+    }
+  }
+  return (numberOne + numberTwo);
+};
+
 const askGcd = () => {
   const numberOne = Math.floor(Math.random() * (100 + 1));
   const numberTwo = Math.floor(Math.random() * (100 + 1));
-  let result;
-  for (let j = numberOne < numberTwo ? numberOne : numberTwo; j >= 1; j -= 1) {
-    if ((numberOne % j === 0) && (numberTwo % j === 0)) {
-      result = j;
-      break;
-    }
-  }
   const resultInQuestion = `${numberOne} ${numberTwo}`;
-  const resultInAnswer = result;
+  const resultInAnswer = findGcd(numberOne, numberTwo);
   return cons(resultInQuestion, resultInAnswer);
 };
 
-export default () => flow(askGcd, 'Find the greatest common divisor of given numbers.\n');
+export default () => flow(askGcd, 'Find the greatest common divisor of given numbers.');

@@ -36,9 +36,11 @@ const askBalance = () => {
       break;
     }
   }
-  const resultInAnswer = String(numberOne) + String(numberTwo) + String(numberThree) +
-  String(numberFour);
+  const arrayNumbers = [numberOne, numberTwo, numberThree, numberFour];
+  arrayNumbers.sort();
+  const resultInAnswer = String(arrayNumbers[0]) + String(arrayNumbers[1]) +
+  String(arrayNumbers[2]) + String(arrayNumbers[3]);
   return cons(resultInQuestion, resultInAnswer);
 };
 
-export default () => flow(askBalance, 'Balance the given number.\n');
+export default () => flow(askBalance, 'Balance the given number.');

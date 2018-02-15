@@ -27,4 +27,4 @@ const askCalc = () => {
   return cons(resultInQuestion, resultInAnswer);
 };
 
-export default () => flow(askCalc, 'What is the result of the expression?\n');
+export default () => flow(askCalc, 'What is the result of the expression?');
