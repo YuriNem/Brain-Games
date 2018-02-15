@@ -1,23 +1,19 @@
-import questionAnswer from '../answer';
+import cons from '../cons';
+import { flow } from '..';
 
-const askGcd = (name) => {
-  let i;
-  for (i = 0; i < 3; i += 1) {
-    const numberFirst = Math.floor(Math.random() * (100 + 1));
-    const numberSecond = Math.floor(Math.random() * (100 + 1));
-    let result;
-    for (let j = numberFirst < numberSecond ? numberFirst : numberSecond; j >= 1; j -= 1) {
-      if ((numberFirst % j === 0) && (numberSecond % j === 0)) {
-        result = j;
-        break;
-      }
-    }
-    const stringResult = `${numberFirst} ${numberSecond}`;
-    if (questionAnswer(name, result, stringResult) === 1) {
+const askGcd = () => {
+  const numberOne = Math.floor(Math.random() * (100 + 1));
+  const numberTwo = Math.floor(Math.random() * (100 + 1));
+  let result;
+  for (let j = numberOne < numberTwo ? numberOne : numberTwo; j >= 1; j -= 1) {
+    if ((numberOne % j === 0) && (numberTwo % j === 0)) {
+      result = j;
       break;
     }
   }
-  return 0;
+  const resultInQuestion = `${numberOne} ${numberTwo}`;
+  const resultInAnswer = result;
+  return cons(resultInQuestion, resultInAnswer);
 };
 
-export default askGcd;
+export default () => flow(askGcd, 'Find the greatest common divisor of given numbers.\n');

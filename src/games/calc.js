@@ -1,34 +1,30 @@
-import questionAnswer from '../answer';
+import cons from '../cons';
+import { flow } from '..';
 
-const askCalc = (name) => {
-  let i;
-  for (i = 0; i < 3; i += 1) {
-    const numberFirst = Math.floor(Math.random() * (100 + 1));
-    const numberSecond = Math.floor(Math.random() * (100 + 1));
-    let operator = '';
-    let result;
-    switch (Math.floor(Math.random() * (3)) + 1) {
-      case 1:
-        operator = '+';
-        result = numberFirst + numberSecond;
-        break;
-      case 2:
-        operator = '-';
-        result = numberFirst - numberSecond;
-        break;
-      case 3:
-        operator = '*';
-        result = numberFirst * numberSecond;
-        break;
-      default:
-        break;
-    }
-    const stringResult = `${numberFirst} ${operator} ${numberSecond}`;
-    if (questionAnswer(name, result, stringResult) === 1) {
+const askCalc = () => {
+  const numberOne = Math.floor(Math.random() * (100 + 1));
+  const numberTwo = Math.floor(Math.random() * (100 + 1));
+  let operator = '';
+  let result;
+  switch (Math.floor(Math.random() * (3)) + 1) {
+    case 1:
+      operator = '+';
+      result = numberOne + numberTwo;
       break;
-    }
+    case 2:
+      operator = '-';
+      result = numberOne - numberTwo;
+      break;
+    case 3:
+      operator = '*';
+      result = numberOne * numberTwo;
+      break;
+    default:
+      break;
   }
-  return 0;
+  const resultInQuestion = `${numberOne} ${operator} ${numberTwo}`;
+  const resultInAnswer = result;
+  return cons(resultInQuestion, resultInAnswer);
 };
 
-export default askCalc;
+export default () => flow(askCalc, 'What is the result of the expression?\n');

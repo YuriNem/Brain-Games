@@ -1,15 +1,10 @@
-import questionAnswer from '../answer';
+import cons from '../cons';
+import { flow } from '..';
 
-const askEven = (name) => {
-  let i;
-  for (i = 0; i < 3; i += 1) {
-    const stringResult = Math.floor(Math.random() * (100 + 1));
-    const result = (stringResult % 2 === 0) ? 'yes' : 'no';
-    if (questionAnswer(name, result, stringResult) === 1) {
-      break;
-    }
-  }
-  return 0;
+const askEven = () => {
+  const resultInQuestion = Math.floor(Math.random() * (100 + 1));
+  const resultInAnswer = (resultInQuestion % 2 === 0) ? 'yes' : 'no';
+  return cons(resultInQuestion, resultInAnswer);
 };
 
-export default askEven;
+export default () => flow(askEven, 'Answer "yes" if number even otherwise answer "no".\n');
