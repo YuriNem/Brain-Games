@@ -2,27 +2,21 @@ import cons from '../cons';
 import { flow } from '..';
 
 const askProgression = () => {
-  const numberOne = Math.floor(Math.random() * (100 + 1));
-  const progressionStep = Math.floor(Math.random() * (9 + 1)) + 1;
   const progressionNumbers = [];
-  progressionNumbers[0] = numberOne;
-  for (let i = 1; i < 10; i += 1) {
-    progressionNumbers[i] = (i * progressionStep) + numberOne;
-  }
+  progressionNumbers[0] = Math.floor(Math.random() * (100 + 1));
+  const progressionStep = Math.floor(Math.random() * (9 + 1)) + 1;
   const progressionUnknownPosition = Math.floor(Math.random() * (7 + 1)) + 1;
-  const progressionUnknownNumber = progressionNumbers[progressionUnknownPosition];
-  let progressionNumbersString = '';
-  for (let j = 0; j < 10; j += 1) {
-    if (progressionNumbers[j] !== progressionUnknownNumber) {
-      progressionNumbersString += String(progressionNumbers[j]);
-      progressionNumbersString += ' ';
+  let resultInQuestion = `${progressionNumbers[0]} `;
+  let resultInAnswer;
+  for (let i = 1; i < 10; i += 1) {
+    progressionNumbers[i] = (i * progressionStep) + progressionNumbers[0];
+    if (i === progressionUnknownPosition) {
+      resultInQuestion += '.. ';
+      resultInAnswer = progressionNumbers[i];
     } else {
-      progressionNumbersString += '..';
-      progressionNumbersString += ' ';
+      resultInQuestion += `${progressionNumbers[i]} `;
     }
   }
-  const resultInQuestion = progressionNumbersString;
-  const resultInAnswer = progressionUnknownNumber;
   return cons(resultInQuestion, resultInAnswer);
 };
 
