@@ -14,9 +14,9 @@ const isPrime = (number) => {
 };
 
 const askPrime = () => {
-  const resultInQuestion = Math.floor(Math.random() * (100 + 1));
-  const resultInAnswer = isPrime(resultInQuestion) ? 'yes' : 'no';
-  return cons(resultInQuestion, resultInAnswer);
+  const userQuestion = Math.floor(Math.random() * (100 + 1));
+  const userAnswer = isPrime(userQuestion) ? 'yes' : 'no';
+  return cons(userQuestion, userAnswer);
 };
 
 export default () => flow(askPrime, 'Is this number prime?');

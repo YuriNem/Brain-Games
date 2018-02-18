@@ -6,18 +6,18 @@ const askProgression = () => {
   progressionNumbers[0] = Math.floor(Math.random() * (100 + 1));
   const progressionStep = Math.floor(Math.random() * (9 + 1)) + 1;
   const progressionUnknownPosition = Math.floor(Math.random() * (7 + 1)) + 1;
-  let resultInQuestion = `${progressionNumbers[0]} `;
-  let resultInAnswer;
+  let userQuestion = `${progressionNumbers[0]} `;
+  let userAnswer;
   for (let i = 1; i < 10; i += 1) {
     progressionNumbers[i] = (i * progressionStep) + progressionNumbers[0];
     if (i === progressionUnknownPosition) {
-      resultInQuestion += '.. ';
-      resultInAnswer = progressionNumbers[i];
+      userQuestion += '.. ';
+      userAnswer = progressionNumbers[i];
     } else {
-      resultInQuestion += `${progressionNumbers[i]} `;
+      userQuestion += `${progressionNumbers[i]} `;
     }
   }
-  return cons(resultInQuestion, resultInAnswer);
+  return cons(userQuestion, userAnswer);
 };
 
 export default () => flow(askProgression, 'What number is missing in this progression?');

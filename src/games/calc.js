@@ -22,9 +22,9 @@ const askCalc = () => {
     default:
       break;
   }
-  const resultInQuestion = `${numberOne} ${operator} ${numberTwo}`;
-  const resultInAnswer = result;
-  return cons(resultInQuestion, resultInAnswer);
+  const userQuestion = `${numberOne} ${operator} ${numberTwo}`;
+  const userAnswer = result;
+  return cons(userQuestion, userAnswer);
 };
 
 export default () => flow(askCalc, 'What is the result of the expression?');

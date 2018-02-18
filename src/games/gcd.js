@@ -17,9 +17,9 @@ const findGcd = (a, b) => {
 const askGcd = () => {
   const numberOne = Math.floor(Math.random() * (100 + 1));
   const numberTwo = Math.floor(Math.random() * (100 + 1));
-  const resultInQuestion = `${numberOne} ${numberTwo}`;
-  const resultInAnswer = findGcd(numberOne, numberTwo);
-  return cons(resultInQuestion, resultInAnswer);
+  const userQuestion = `${numberOne} ${numberTwo}`;
+  const userAnswer = findGcd(numberOne, numberTwo);
+  return cons(userQuestion, userAnswer);
 };
 
 export default () => flow(askGcd, 'Find the greatest common divisor of given numbers.');
