@@ -10,3 +10,4 @@ Used:
 * [Eslint](https://eslint.org/)
 * [CodeClimate](https://codeclimate.com/)
 * [Travis CI](https://travis-ci.org/)
+* [readline-sync](https://github.com/anseki/readline-sync)
